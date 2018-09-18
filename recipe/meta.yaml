@@ -27,13 +27,13 @@ requirements:
   run:
     - python >=3.6,<3.7
     - pyparsing
+    - freecad
 
 test:
   source_files:
     - src/tests
     - src/runtests.py
   requires:
-    - freecad
     - mock
   imports:
     - cadquery
