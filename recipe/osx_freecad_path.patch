@@ -1,11 +1,11 @@
---- a/cadquery/freecad_impl/__init__.py
-+++ b/cadquery/freecad_impl/__init__.py
-@@ -62,17 +62,16 @@ def _fc_path():
+--- cadquery/freecad_impl/__init__.py	2021-01-05 07:00:36.000000000 -0500
++++ cadquery/freecad_impl/__init__.py	2021-02-08 18:32:31.129505708 -0500
+@@ -62,17 +62,16 @@
          return _PATH
 
      # Try to guess if using Anaconda
 -    if 'env' in sys.prefix:
--        if sys.platform.startswith('linux'):
+-        if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
 -            _PATH = os.path.join(sys.prefix,'lib')
 -            # return PATH if FreeCAD.[so,pyd] is present
 -            if len(glob.glob(os.path.join(_PATH,'FreeCAD.so'))) > 0:
@@ -15,7 +15,7 @@
 -            # return PATH if FreeCAD.[so,pyd] is present
 -            if len(glob.glob(os.path.join(_PATH,'FreeCAD.pyd'))) > 0:
 -                return _PATH
-+    if sys.platform.startswith('linux'):
++    if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
 +        _PATH = os.path.join(sys.prefix,'lib')
 +        # return PATH if FreeCAD.[so,pyd] is present
 +        if len(glob.glob(os.path.join(_PATH,'FreeCAD.so'))) > 0:
