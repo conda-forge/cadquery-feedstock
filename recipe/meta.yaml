@@ -1,67 +1,77 @@
 {% set name = "cadquery" %}
-{% set version = "1.2.5" %}
+{% set version = "2.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: b2ddd927cb81bc9ad2332692d4ab0b4cb36581543463b64bd2d388b3709ea0ae
-    patches:
-      - osx_freecad_path.patch
-  - folder: src
-    url: https://github.com/dcowden/cadquery/archive/v{{ version }}.tar.gz
-    sha256: 75eb6f987aeaf3d86197353c53dc2808a78fa9f2ade651f5751e96aa14b23829
+  url: https://github.com/CadQuery/cadquery/archive/{{ version }}.tar.gz
+  sha256: 574e3674a6f97fb4ae3849e7453bbb341e14c8675642aa1887b30b177b5c7133
 
 build:
   number: 0
   noarch: python
-  script: cd dist && python -m pip install --no-deps --ignore-installed .
+  script: cd dist && python -m pip install -vv --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python >=3.6,<3.7
+    - python >=3.6
     - pip
   run:
-    - python >=3.6,<3.7
-    - pyparsing
-    - freecad
+    - python >=3.6
+    - ocp 7.4
+    - pyparsing 2.*
+    - ezdxf
+    - ipython
+    - typing_extensions
+    - nptyping
+    - scipy
 
 test:
-  source_files:
-    - src/tests
-    - src/runtests.py
   requires:
-    - mock
-  imports:
-    - cadquery
+    - docutils
+    - pytest-cov
+  source_files:
+    - tests
   commands:
-    - cd src
-    - python runtests.py
+    - pytest -v --cov cadquery --cov-fail-under 100 --no-cov-on-fail --cov-report term-missing:skip-covered
 
 about:
-  home: https://github.com/dcowden/cadquery
+  home: https://github.com/CadQuery/cadquery
   license: Apache-2.0
   license_family: Apache
-  license_file: src/LICENSE
+  license_file: LICENSE
   summary: |
-    CadQuery is a parametric scripting language for creating and traversing
-    CAD models
+    CadQuery is a parametric scripting language for creating and traversing CAD
+    models
   description: |
-    CadQuery is an intuitive, easy-to-use python library for building
-    parametric 3D CAD models. It has several goals:
-    - Build models with scripts that are as close as possible to how you’d
-      describe the object to a human, using a standard, already established
-      programming language
-    - Create parametric models that can be very easily customized by end users
-    - Output high quality CAD formats like STEP and AMF in addition to
-      traditional STL
-    - Provide a non-proprietary, plain text model format that can be edited and
-      executed with only a web browser
-  doc_url: http://dcowden.github.io/cadquery/
-  dev_url: https://github.com/dcowden/cadquery
+    CadQuery is an intuitive, easy-to-use Python module for building parametric
+    3D CAD models. Using CadQuery, you can write short, simple scripts that
+    produce high quality CAD models. It is easy to make many different objects
+    using a single script that can be customized.
+
+    CadQuery is often compared to [OpenSCAD](http://www.openscad.org/). Like
+    OpenSCAD, CadQuery is an open-source, script based, parametric model
+    generator. However, CadQuery stands out in many ways and has several
+    key advantages:
+
+    1. The scripts use a standard programming language, Python, and thus can
+       benefit from the associated infrastructure. This includes many standard
+       libraries and IDEs.
+    2. CadQuery's CAD kernel Open CASCADE Technology (OCCT) is much more
+       powerful than CGAL. Features supported natively by OCCT include NURBS,
+       splines, surface sewing, STL repair, STEP import/export, and other
+       complex operations, in addition to the standard CSG operations supported
+       by CGAL
+    3. Ability to import/export STEP and the ability to begin with a STEP model,
+       created in a CAD package, and then add parametric features. This is
+       possible in OpenSCAD using STL, but STL is a lossy format.
+    4. CadQuery scripts require less code to create most objects, because it is
+       possible to locate features based on the position of other features,
+       workplanes, vertices, etc.
+    5. CadQuery scripts can build STL, STEP, and AMF faster than OpenSCAD.
+  doc_url: https://cadquery.readthedocs.io
 
 extra:
   recipe-maintainers:
