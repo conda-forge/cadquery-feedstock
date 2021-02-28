@@ -1,30 +1,43 @@
 About cadquery
 ==============
 
-Home: https://github.com/dcowden/cadquery
+Home: https://github.com/CadQuery/cadquery
 
 Package license: Apache-2.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cadquery-feedstock/blob/master/LICENSE.txt)
 
-Summary: CadQuery is a parametric scripting language for creating and traversing
-CAD models
+Summary: CadQuery is a parametric scripting language for creating and traversing CAD
+models
 
 
-Development: https://github.com/dcowden/cadquery
+Documentation: https://cadquery.readthedocs.io
 
-Documentation: http://dcowden.github.io/cadquery/
+CadQuery is an intuitive, easy-to-use Python module for building parametric
+3D CAD models. Using CadQuery, you can write short, simple scripts that
+produce high quality CAD models. It is easy to make many different objects
+using a single script that can be customized.
 
-CadQuery is an intuitive, easy-to-use python library for building
-parametric 3D CAD models. It has several goals:
-- Build models with scripts that are as close as possible to how you’d
-  describe the object to a human, using a standard, already established
-  programming language
-- Create parametric models that can be very easily customized by end users
-- Output high quality CAD formats like STEP and AMF in addition to
-  traditional STL
-- Provide a non-proprietary, plain text model format that can be edited and
-  executed with only a web browser
+CadQuery is often compared to [OpenSCAD](http://www.openscad.org/). Like
+OpenSCAD, CadQuery is an open-source, script based, parametric model
+generator. However, CadQuery stands out in many ways and has several
+key advantages:
+
+1. The scripts use a standard programming language, Python, and thus can
+   benefit from the associated infrastructure. This includes many standard
+   libraries and IDEs.
+2. CadQuery's CAD kernel Open CASCADE Technology (OCCT) is much more
+   powerful than CGAL. Features supported natively by OCCT include NURBS,
+   splines, surface sewing, STL repair, STEP import/export, and other
+   complex operations, in addition to the standard CSG operations supported
+   by CGAL
+3. Ability to import/export STEP and the ability to begin with a STEP model,
+   created in a CAD package, and then add parametric features. This is
+   possible in OpenSCAD using STL, but STL is a lossy format.
+4. CadQuery scripts require less code to create most objects, because it is
+   possible to locate features based on the position of other features,
+   workplanes, vertices, etc.
+5. CadQuery scripts can build STL, STEP, and AMF faster than OpenSCAD.
 
 
 Current build status
@@ -124,9 +137,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
