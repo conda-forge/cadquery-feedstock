@@ -1,48 +1,48 @@
 {% set name = "cadquery" %}
-{% set version = "1.2.5" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: b2ddd927cb81bc9ad2332692d4ab0b4cb36581543463b64bd2d388b3709ea0ae
-    patches:
-      - osx_freecad_path.patch
   - folder: src
-    url: https://github.com/dcowden/cadquery/archive/v{{ version }}.tar.gz
-    sha256: 75eb6f987aeaf3d86197353c53dc2808a78fa9f2ade651f5751e96aa14b23829
+    url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
+    sha256: 9a71a3bb1185228f62b14810fe078489f4af61e02d9e2c683e68626ff9903dbc
 
 build:
   number: 0
   noarch: python
-  script: cd dist && python -m pip install --no-deps --ignore-installed .
+  script: cd src && python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python >=3.6,<3.7
-    - pip
+    - python >=3.8,<=3.11
+    - setuptools
   run:
-    - python >=3.6,<3.7
-    - pyparsing
-    - freecad
+    - python >=3.8,<=3.11
+    - ocp 7.7.*
+    - pyparsing >=2.1.9
+    - ezdxf
+    - ipython
+    - typing_extensions
+    - nptyping 2.0.1
+    - nlopt
+    - multimethod >=1.7,<2.0
+    - casadi
 
 test:
-  source_files:
-    - src/tests
-    - src/runtests.py
   requires:
-    - mock
-  imports:
-    - cadquery
+    - pytest
+    - docutils
+    - path
+  source_files:
+    - tests/
   commands:
-    - cd src
-    - python runtests.py
+    - pytest -v
 
 about:
-  home: https://github.com/dcowden/cadquery
+  home: https://github.com/cadquery/cadquery
   license: Apache-2.0
   license_family: Apache
   license_file: src/LICENSE
@@ -60,8 +60,8 @@ about:
       traditional STL
     - Provide a non-proprietary, plain text model format that can be edited and
       executed with only a web browser
-  doc_url: http://dcowden.github.io/cadquery/
-  dev_url: https://github.com/dcowden/cadquery
+  doc_url: https://cadquery.readthedocs.io/
+  dev_url: https://github.com/cadquery/cadquery
 
 extra:
   recipe-maintainers:
