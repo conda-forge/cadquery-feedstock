@@ -19,6 +19,7 @@ requirements:
   host:
     - python >=3.8,<=3.11
     - setuptools
+    - pip
   run:
     - python >=3.8,<=3.11
     - ocp 7.7.*
