@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: cd src && python -m pip install --no-deps --ignore-installed .
+  script: cd src && python -m pip install --no-deps --ignore-requires-python --ignore-installed .
 
 requirements:
   host:
