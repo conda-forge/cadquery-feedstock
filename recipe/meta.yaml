@@ -38,7 +38,7 @@ test:
     - docutils
     - path
   source_files:
-    - tests/
+    - src/tests/
   commands:
     - pytest -v
 
