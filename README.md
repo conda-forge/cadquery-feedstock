@@ -11,9 +11,7 @@ Summary: CadQuery is a parametric scripting language for creating and traversing
 CAD models
 
 
-Development: https://github.com/cadquery/cadquery
-
-Documentation: https://cadquery.readthedocs.io/
+Documentation: https://cadquery.readthedocs.io
 
 CadQuery is an intuitive, easy-to-use python library for building
 parametric 3D CAD models. It has several goals:
@@ -161,5 +159,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@adam-urbanczyk](https://github.com/adam-urbanczyk/)
 * [@bollwyvl](https://github.com/bollwyvl/)
 
