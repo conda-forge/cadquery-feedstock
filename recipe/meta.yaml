@@ -1,8 +1,7 @@
-{% set name = "cadquery" %}
 {% set version = "2.2.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: cadquery
   version: {{ version }}
 
 source:
@@ -19,23 +18,23 @@ requirements:
     - python >=3.8,<=3.11
     - pip
   run:
-    - python >=3.8,<=3.11
-    - ocp 7.7.*
-    - pyparsing >=2.1.9
+    - casadi
     - ezdxf
     - ipython
-    - typing_extensions
-    - nptyping >=2.0.1
-    - nlopt
     - multimethod >=1.7,<2.0
-    - casadi
+    - nlopt
+    - nptyping 2.0.1
+    - ocp 7.7.*
+    - pyparsing >=2.1.9
+    - python >=3.8,<=3.11
+    - typing_extensions
 
 test:
   requires:
-    - pytest
     - docutils
     - path
     - pip
+    - pytest
   source_files:
     - tests/
   commands:
@@ -61,8 +60,7 @@ about:
       traditional STL
     - Provide a non-proprietary, plain text model format that can be edited and
       executed with only a web browser
-  doc_url: https://cadquery.readthedocs.io/
-  dev_url: https://github.com/cadquery/cadquery
+  doc_url: https://cadquery.readthedocs.io
 
 extra:
   recipe-maintainers:
