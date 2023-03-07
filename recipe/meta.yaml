@@ -6,19 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  - folder: src
-    url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 9a71a3bb1185228f62b14810fe078489f4af61e02d9e2c683e68626ff9903dbc
+  url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 9a71a3bb1185228f62b14810fe078489f4af61e02d9e2c683e68626ff9903dbc
 
 build:
   number: 0
   noarch: python
-  script: cd src && python -m pip install --no-deps --ignore-requires-python --ignore-installed .
+  script: python -m pip install -vv --no-deps --ignore-requires-python --ignore-installed .
 
 requirements:
   host:
     - python >=3.8,<=3.11
-    - setuptools
     - pip
   run:
     - python >=3.8,<=3.11
@@ -27,7 +25,7 @@ requirements:
     - ezdxf
     - ipython
     - typing_extensions
-    - nptyping 2.0.1
+    - nptyping >=2.0.1
     - nlopt
     - multimethod >=1.7,<2.0
     - casadi
@@ -37,10 +35,12 @@ test:
     - pytest
     - docutils
     - path
+    - pip
   source_files:
-    - src/tests/
+    - tests/
   commands:
-    - pytest -v
+    - pip check
+    - pytest -vv
 
 about:
   home: https://github.com/cadquery/cadquery
@@ -67,3 +67,4 @@ about:
 extra:
   recipe-maintainers:
     - bollwyvl
+    - adam-urbanczyk
