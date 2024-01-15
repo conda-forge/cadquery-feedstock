@@ -1,4 +1,4 @@
-{% set version = "2.3.1" %}
+{% set version = "2.4.0" %}
 
 package:
   name: cadquery
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a746ed61bb581a556edeac7d7d5099b5496bca8a429c635a73c009fcd44a6dac
+  sha256: 15d98346bbc3aec5b121b49cdfd29a251e419858ff9829a069eaff2c29131e0d
 
 build:
   number: 0
