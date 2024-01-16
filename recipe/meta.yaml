@@ -21,14 +21,13 @@ requirements:
   run:
     - python >=3.9
     - ocp 7.7.2
-    - vtk =*=qt*
     - pyparsing >=2.1.9
     - ezdxf
     - ipython
     - typing_extensions
     - nptyping >=2.0.1
     - nlopt
-    - multimethod ==1.9.1
+    - multimethod >=1.7,<=1.9.1
     - casadi
 
 test:
