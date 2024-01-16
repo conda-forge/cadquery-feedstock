@@ -21,7 +21,7 @@ requirements:
   run:
     - python >=3.9
     - ocp 7.7.2
-    - vtk=*=qt*
+    - vtk =*=qt*
     - pyparsing >=2.1.9
     - ezdxf
     - ipython
