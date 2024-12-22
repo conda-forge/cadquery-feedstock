@@ -12,12 +12,13 @@ source:
 build:
   number: 1
   noarch: python
-  script: python -m pip install -vv --no-deps --ignore-requires-python --ignore-installed .
+  script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-requires-python --ignore-installed --no-build-isolation --disable-pip-version-check .
 
 requirements:
   host:
-    - python {{ python_min }}
     - pip
+    - python {{ python_min }}
+    - setuptools
   run:
     - python >={{ python_min }}
     - ocp 7.7.2
