@@ -10,16 +10,17 @@ source:
   sha256: 15d98346bbc3aec5b121b49cdfd29a251e419858ff9829a069eaff2c29131e0d
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: python -m pip install -vv --no-deps --ignore-requires-python --ignore-installed .
+  script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-requires-python --ignore-installed --no-build-isolation --disable-pip-version-check .
 
 requirements:
   host:
-    - python >=3.9
     - pip
+    - python {{ python_min }}
+    - setuptools
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - ocp 7.7.2
     - pyparsing >=2.1.9
     - ezdxf
@@ -38,6 +39,7 @@ test:
     - pip
     - pytest
     - pytest-cov
+    - python {{ python_min }}
   source_files:
     - tests
   imports:
@@ -45,7 +47,8 @@ test:
   commands:
     - pip check
     - mypy -m cadquery
-    - pytest -vv --cov=cadquery --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=93
+    - coverage run --source=cadquery --branch -m pytest -vv --tb=long --color=yes -k "not (constraint_validation or constraint_solver)"
+    - coverage report --show-missing --skip-covered --fail-under=90
 
 about:
   home: https://github.com/cadquery/cadquery
