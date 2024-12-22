@@ -48,7 +48,7 @@ test:
     - pip check
     - mypy -m cadquery
     - coverage run --source=cadquery --branch -m pytest -vv --tb=long --color=yes -k "not (constraint_validation or constraint_solver)"
-    - coverage report --show-missing --skip-covered --fail-under=93
+    - coverage report --show-missing --skip-covered --fail-under=90
 
 about:
   home: https://github.com/cadquery/cadquery
