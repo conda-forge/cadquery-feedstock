@@ -10,16 +10,16 @@ source:
   sha256: 15d98346bbc3aec5b121b49cdfd29a251e419858ff9829a069eaff2c29131e0d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install -vv --no-deps --ignore-requires-python --ignore-installed .
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - ocp 7.7.2
     - pyparsing >=2.1.9
     - ezdxf
@@ -38,6 +38,7 @@ test:
     - pip
     - pytest
     - pytest-cov
+    - python {{ python_min }}
   source_files:
     - tests
   imports:
