@@ -1,16 +1,15 @@
-
-{% set version = "2.4.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: cadquery
   version: {{ version }}
 
 source:
-  url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 15d98346bbc3aec5b121b49cdfd29a251e419858ff9829a069eaff2c29131e0d
+  url: https://github.com/CadQuery/cadquery/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 0c0e64d1eacc13d0d0423f31820d84b02d1d8f21f931454d0930c49cd6744a57
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-requires-python --ignore-installed --no-build-isolation --disable-pip-version-check .
 
