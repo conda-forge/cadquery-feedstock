@@ -1,18 +1,18 @@
-
-{% set version = "2.4.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: cadquery
   version: {{ version }}
 
 source:
-  url: https://github.com/CadQuery/cadquery/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 15d98346bbc3aec5b121b49cdfd29a251e419858ff9829a069eaff2c29131e0d
+  url: https://github.com/CadQuery/cadquery/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 0c0e64d1eacc13d0d0423f31820d84b02d1d8f21f931454d0930c49cd6744a57
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install -vv --no-deps --ignore-requires-python --ignore-installed --no-build-isolation --disable-pip-version-check .
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
@@ -20,16 +20,17 @@ requirements:
     - python {{ python_min }}
     - setuptools
   run:
-    - python >={{ python_min }}
-    - ocp 7.7.2
-    - pyparsing >=2.1.9
+    - casadi
     - ezdxf
     - ipython
-    - typing_extensions
-    - nptyping >=2.0.1
+    - multimethod >=1.11s,<2
     - nlopt
-    - multimethod >=1.7,<=1.9.1
-    - casadi
+    - ocp 7.7.2
+    - pyparsing >=2.1.9
+    - python >={{ python_min }}
+    - typing_extensions
+    - typish
+    - vtk =*=qt*
 
 test:
   requires:
