@@ -23,7 +23,7 @@ requirements:
     - casadi
     - ezdxf
     - ipython
-    - multimethod >=1.11s,<2
+    - multimethod >=1.11,<2
     - nlopt
     - ocp 7.7.2
     - pyparsing >=2.1.9
