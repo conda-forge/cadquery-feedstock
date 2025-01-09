@@ -21,7 +21,7 @@ requirements:
     - setuptools
   run:
     - casadi
-    - ezdxf >= 1.3.0
+    - ezdxf >=1.3.0
     - ipython
     - multimethod >=1.11,<2
     - nlopt
