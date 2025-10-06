@@ -21,7 +21,7 @@ build:
 requirements:
   host:
     - pip
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
   run:
     - casadi
@@ -34,9 +34,7 @@ requirements:
     - python >=${{ python_min }}
     - trame
     - trame-vtk
-    - typing_extensions
     - typish
-    - vtk =*=qt*
 
 tests:
   - python:
@@ -56,7 +54,7 @@ tests:
         - pip
         - pytest
         - pytest-cov
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - pip check
       - mypy -m cadquery
