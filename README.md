@@ -10,20 +10,18 @@ Package license: Apache-2.0
 Summary: CadQuery is a parametric scripting language for creating and traversing
 CAD models
 
-
-Documentation: https://cadquery.readthedocs.io
+Documentation: https://cadquery.readthedocs.io/
 
 CadQuery is an intuitive, easy-to-use python library for building
 parametric 3D CAD models. It has several goals:
 - Build models with scripts that are as close as possible to how you’d
-  describe the object to a human, using a standard, already established
-  programming language
+describe the object to a human, using a standard, already established
+programming language
 - Create parametric models that can be very easily customized by end users
 - Output high quality CAD formats like STEP and AMF in addition to
-  traditional STL
+traditional STL
 - Provide a non-proprietary, plain text model format that can be edited and
-  executed with only a web browser
-
+executed with only a web browser
 
 Current build status
 ====================
