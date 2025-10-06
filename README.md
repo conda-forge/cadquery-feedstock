@@ -10,20 +10,18 @@ Package license: Apache-2.0
 Summary: CadQuery is a parametric scripting language for creating and traversing
 CAD models
 
-
-Documentation: https://cadquery.readthedocs.io
+Documentation: https://cadquery.readthedocs.io/
 
 CadQuery is an intuitive, easy-to-use python library for building
 parametric 3D CAD models. It has several goals:
 - Build models with scripts that are as close as possible to how you’d
-  describe the object to a human, using a standard, already established
-  programming language
+describe the object to a human, using a standard, already established
+programming language
 - Create parametric models that can be very easily customized by end users
 - Output high quality CAD formats like STEP and AMF in addition to
-  traditional STL
+traditional STL
 - Provide a non-proprietary, plain text model format that can be edited and
-  executed with only a web browser
-
+executed with only a web browser
 
 Current build status
 ====================
@@ -114,12 +112,12 @@ it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -146,7 +144,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/cadquery-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
