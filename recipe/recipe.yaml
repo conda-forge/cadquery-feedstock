@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.6.1"
+  version: "2.7.0"
 
 package:
   name: cadquery
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/CadQuery/cadquery/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 8cd6b4c7c06529b38a76c62b0ea09e209f2d2a698cf81d7e9221a3e9f03f6d35
+  sha256: 4331323c1d0c7c6f55abe33b22def1eef83d7c45e594c13a3c352a175ddfe19d
 
 build:
   number: 0
@@ -34,7 +34,11 @@ requirements:
     - python >=${{ python_min }}
     - trame
     - trame-vtk
-    - typish
+    - runtype
+    - trame
+    - trame-vtk
+    - trame-components
+    - trame-vuetify
 
 tests:
   - python:
